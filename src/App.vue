@@ -39,7 +39,7 @@ import { ref, onMounted } from 'vue'
 import langs from './config/langs'
 import { getTranslateApi } from './api/api'
 const translateText = ref('')
-const translateResult = ref([])
+const translateResult:any = ref([])
 const openLangs = ref(['zh-CN', 'zh-TW', 'en'])
 const loading = ref(false)
 const remind = ref(false)
@@ -67,14 +67,14 @@ const submitTranslate = () => {
     text: translateText.value
   }
   loading.value = true
-  getTranslateApi(params).then(res => {
+  getTranslateApi(params).then((res:any) => {
     translateResult.value = res.data
     loading.value = false
   })
 }
 
 const copyClick = (text:string) => {
-  const textArea = document.createElement('textArea')
+  const textArea:any = document.createElement('textArea')
   textArea.value = text
   document.body.appendChild(textArea)
   textArea.select()
